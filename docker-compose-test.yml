@@ -1,0 +1,26 @@
+version: '3.2'
+
+networks:
+  integration-test:
+
+services:
+  it_tests:
+    build:
+      context: .
+      dockerfile: docker-test.yml
+    volumes:
+      - $PWD:/go/src/target
+    depends_on:
+      - db
+    networks:
+      - integration-test
+  db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: mysecretpassword
+      MYSQL_DATABASE: people
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    restart: on-failure
+    networks:
+      - integration-test

@@ -1,0 +1,8 @@
+FROM mysql:latest
+
+ENV MYSQL_ROOT_PASSWORD=mysecretpassword
+ENV MYSQL_DATABASE=people
+ENV MYSQL_USER=user
+ENV MYSQL_PASSWORD=password
+
+EXPOSE 3306
