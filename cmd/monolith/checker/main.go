@@ -47,14 +47,14 @@ func main() {
 	authService := initUserService(db, e)
 	initInterviewAppointmentService(db, g, authService)
 
-	e.Start(fmt.Sprintf(":%s", env.Data().Port))
+	e.Start(env.Data().Port())
 }
 
 func initEcho() (*echo.Echo, *echo.Group) {
 	// init echo and register log, middleware, create group
 	e := echo.New()
 	e.Use(echozap.ZapLogger(logger.Log))
-	e.Use(middleware.RateLimiter(middleware.NewRateLimiterMemoryStore(10)))
+	e.Use(middleware.RateLimiter(middleware.NewRateLimiterMemoryStore(env.Data().RateLimit())))
 
 	config := echojwt.Config{
 		NewClaimsFunc: func(c echo.Context) jwt.Claims {

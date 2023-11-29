@@ -1,4 +1,4 @@
-FROM golang:1.19-alpine as build-base
+FROM golang:1.20-alpine as build-base
 
 WORKDIR /app
 
@@ -17,6 +17,7 @@ COPY --from=build-base /app/go-app /app/go-app
 # Set environment variables
 ENV DB_URL user:password@tcp(rbh-db:3306)/people?charset=utf8mb4&parseTime=True&loc=Local
 ENV PORT 8080
+ENV RATE_LIMIT 20
 ENV JWT_SECRET my-secret
 
 CMD ["/app/go-app"]

@@ -22,3 +22,5 @@
 go.work
 
 .env
+mysql-data
+docker-mysql.yml
