@@ -25,8 +25,9 @@ This is the pre-interview project implement with domain-driven-design
     make integration-test-down
 
 ## Improvement
-    - write more test for interview-appointment-service and use env library such as viper, Ginkgo to manage env, test
+    - write more test for interview-appointment-service and use env library such as viper, Ginkgo to manage env, test.
     - improve dockerfile to more readable.
-    - can split relationship between user-service, interview-appointment-service from library interaction to client call 
+    - can split relationship between user-service, interview-appointment-service from library interaction to client call.
       to make this 2 domain to microservice.
     - some module in pkg can split to be a share library.
+    - add log in service layer.
