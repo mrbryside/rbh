@@ -1,8 +1,7 @@
-
-
 # RBH project
 
-This is the pre-interview project implement with domain-driven-design
+This is the pre-interview project implement with domain-driven-design it's split to two context but the comunication is library integration
+we can split to microservice later!
 
 <center><img src="./bounded-context.png" alt="" width="900px" height="auto"/></center>
 
@@ -27,6 +26,9 @@ This is the pre-interview project implement with domain-driven-design
 
 ## Down the integration-test sandbox
     make integration-test-down
+
+## Postman collection also provided !!
+    rbh.postman_collection.json
 
 ## Improvement
     - write more test for interview-appointment-service and use env library such as viper, Ginkgo to manage env, test.
