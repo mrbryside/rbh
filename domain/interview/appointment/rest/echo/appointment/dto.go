@@ -1,10 +1,8 @@
 package appointment
 
 type CreatePayload struct {
-	Id          uint   `json:"id"`
 	Name        string `json:"name"`
 	Description string `json:"description"`
-	Status      string `json:"status"`
 }
 
 type UpdatePayload struct {

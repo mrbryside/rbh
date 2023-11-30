@@ -19,7 +19,10 @@ func (h Handler) Create(c echo.Context) error {
 
 	validate := validator.New()
 	if err := validate.Struct(cp); err != nil {
-		return mhttp.BadRequest(c, fmt.Sprintf("validation error: %s", err.Error()))
+		return mhttp.BadRequest(c, fmt.Sprintf(
+			"validation error: %s",
+			err.Error()),
+		)
 	}
 
 	creatorId := c.Get(claim.UserId).(uint)
@@ -32,5 +35,5 @@ func (h Handler) Create(c echo.Context) error {
 		return mhttp.InternalError(c, err.Error())
 	}
 
-	return mhttp.SuccessWithBody(c, toCommentResponse(agg))
+	return mhttp.SuccessCreatedWithBody(c, toCommentResponse(agg))
 }

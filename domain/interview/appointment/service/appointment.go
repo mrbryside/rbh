@@ -7,6 +7,7 @@ import (
 	"github.com/mrbryside/rbh/domain/interview/appointment/domain/history"
 )
 
+//go:generate mockgen -source=appointment.go -destination=../pkg/generated/appointmentmock/service.go -package=appointmentmock
 type AppointmentServicer interface {
 	Create(CreateAppointmentDto) (appointment.Aggregate, error)
 	UpdateById(UpdateAppointmentDto) (appointment.Aggregate, error)

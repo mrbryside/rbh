@@ -45,6 +45,7 @@ func main() {
 	e, g := initEcho()
 
 	authService := initUserService(db, e)
+	// lib-relation between user-service and interview-appointment-service
 	initInterviewAppointmentService(db, g, authService)
 
 	e.Start(env.Data().Port())

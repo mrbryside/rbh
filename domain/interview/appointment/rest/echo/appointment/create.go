@@ -13,14 +13,14 @@ func (h Handler) Create(c echo.Context) error {
 	if err != nil {
 		return mhttp.BadRequest(c, err.Error())
 	}
-	userId := c.Get(claim.UserId).(uint)
+	creatorId := c.Get(claim.UserId).(uint)
 	result, err := h.appointmentService.Create(service.CreateAppointmentDto{
 		Name:        ap.Name,
 		Description: ap.Description,
-		CreatorId:   userId,
+		CreatorId:   creatorId,
 	})
 	if err != nil {
-		mhttp.InternalError(c, err.Error())
+		return mhttp.InternalError(c, err.Error())
 	}
 	return mhttp.SuccessCreatedWithBody(c, toAppointmentResp(result))
 }

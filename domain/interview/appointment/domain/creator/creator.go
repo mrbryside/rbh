@@ -16,7 +16,8 @@ func New(id uint, name string, email string) (Aggregate, error) {
 		return Aggregate{}, errors.New("id cannot be Empty")
 	}
 	return Aggregate{
-		creator: domain.Creator{Id: id,
+		creator: domain.Creator{
+			Id:    id,
 			Name:  name,
 			Email: email,
 		}}, nil
