@@ -1,6 +1,10 @@
+
+
 # RBH project
 
 This is the pre-interview project implement with domain-driven-design
+
+<center><img src="./bounded-context.png" alt="" width="900px" height="auto"/></center>
 
 ## Installation
     go mod download
