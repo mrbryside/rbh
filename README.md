@@ -31,9 +31,8 @@ we can split to microservice later!
     rbh.postman_collection.json
 
 ## Improvement
-    - write more test for interview-appointment-service and use env library such as viper, Ginkgo to manage env, test.
-    - improve dockerfile to more readable.
-    - can split relationship between user-service, interview-appointment-service from library interaction to client call.
-      to make this 2 domain to microservice.
-    - some module in pkg can split to be a share library.
+    - use env library such as viper to manage env, Ginkgo for more readable test.
+    - improve dockerfile for more readable.
+    - can change relationship between user-service, interview-appointment-service from library interaction to another comunication
+      to be microservice in the future.
     - add log in service layer.

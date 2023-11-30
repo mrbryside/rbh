@@ -1,10 +1,10 @@
 package service
 
 import (
-	"github.com/labstack/gommon/log"
 	"github.com/mrbryside/rbh/domain/interview/appointment/domain/appointment"
 	"github.com/mrbryside/rbh/domain/interview/appointment/domain/comment"
 	"github.com/mrbryside/rbh/domain/interview/appointment/domain/history"
+	"github.com/mrbryside/rbh/pkg/logger"
 )
 
 //go:generate mockgen -source=appointment.go -destination=../pkg/generated/appointmentmock/service.go -package=appointmentmock
@@ -188,6 +188,6 @@ func (as appointmentService) auditLog(agg appointment.Aggregate) {
 		Status:      agg.Appointment().Status.Value,
 	})
 	if err != nil {
-		log.Printf("error creating history: %s", err.Error())
+		logger.Error("error creating history: ", err.Error())
 	}
 }
